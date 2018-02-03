@@ -1,18 +1,19 @@
-[![npm version](https://badge.fury.io/js/%40bowtie%2Futils.svg)](https://www.npmjs.com/package/@bowtie/utils)
-[![build status](https://travis-ci.org/bowtie-co/node-utils.svg?branch=master)](https://travis-ci.org/bowtie-co/node-utils)
-[![npm](https://img.shields.io/npm/dw/localeval.svg)](https://www.npmjs.com/package/@bowtie/utils)
+[![build status](https://img.shields.io/travis/bowtie-co/node-utils.svg?style=flat-square)](https://travis-ci.org/bowtie-co/node-utils)
+[![npm version](https://img.shields.io/npm/v/@bowtie/utils.svg?style=flat-square)](https://www.npmjs.com/package/@bowtie/utils)
+[![node version](https://img.shields.io/node/v/@bowtie/utils.svg?style=flat-square)](https://nodejs.org)
+[![npm downloads](https://img.shields.io/npm/dt/@bowtie/utils.svg?style=flat-square)](https://www.npmjs.com/package/@bowtie/utils)
+[![GitHub contributors](https://img.shields.io/github/contributors/bowtie-co/node-utils.svg?style=flat-square)](https://github.com/bowtie-co/node-utils/graphs/contributors)
+[![npm license](https://img.shields.io/npm/l/@bowtie/utils.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
-
-[![Travis](https://img.shields.io/travis/bowtie-co/node-utils.svg)](https://travis-ci.org/bowtie-co/node-utils)
-[![npm (scoped)](https://img.shields.io/npm/v/@bowtie/utils.svg)](https://www.npmjs.com/package/@bowtie/utils)
-[![node (scoped)](https://img.shields.io/node/v/@bowtie/utils.svg)](https://nodejs.org)
-
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/bowtie-co/node-utils.svg?style=flat-square)](https://github.com/bowtie-co/node-utils/pulls)
+[![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/bowtie-co/node-utils.svg?style=flat-square)](https://github.com/bowtie-co/node-utils/pulls?utf8=%E2%9C%93&q=is%3Apr+is%3Aclosed+)
+[![GitHub issues](https://img.shields.io/github/issues/bowtie-co/node-utils.svg?style=flat-square)](https://github.com/bowtie-co/node-utils/issues)
+[![GitHub closed issues](https://img.shields.io/github/issues-closed/bowtie-co/node-utils.svg?style=flat-square)](https://github.com/bowtie-co/node-utils/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aclosed+)
 # @bowtie/utils
 JavaScript utilities and helpers
 
 - [Installation](#installation)
-- [Basic Usage](#basic-usage)
-- [Function List](#function-list)
+- [Usage](#usage)
   - [capitalizeWord](#capitalizeword)
   - [endsWith](#endswith)
   - [startsWith](#startswith)
@@ -26,21 +27,20 @@ JavaScript utilities and helpers
 npm install --save @bowtie/utils
 ```
 
-## Basic Usage
+## Usage
+
+#### capitalizeWord
+#### endsWith
 ```javascript
-const BowtieUtils = require('@bowtie/utils');
+const { endsWith } = require('@bowtie/utils');
 
 const fileName = 'cool-thing.png';
 
-if (BowtieUtils.endsWith(fileName, '.png')) {
+if (endsWith(fileName, '.png')) {
   console.log(fileName, 'is a PNG!');
 }
 ```
 
-## Function List
-
-#### capitalizeWord
-#### endsWith
 #### startsWith
 #### verifyKeys
 #### verifyRequired
