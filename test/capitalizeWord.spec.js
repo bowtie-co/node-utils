@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const { capitalizeWord } = require('../');
+const { capitalizeWord } = require('../src');
 
 const inputs = {
   lowerCaseWord: 'word',
