@@ -1,6 +1,32 @@
 const expect = require('chai').expect;
 const { verifySchema } = require('../');
 
+const inputs = {
+  requiredSchema: {
+    something: 'string',
+    object: {
+      key: 'string',
+      enabled: 'boolean'
+    }
+  },
+  validObject: {
+    something: 'hello world',
+    object: {
+      key: 'value',
+      enabled: true
+    }
+  },
+  invalidObject: {
+    something: 'hello world',
+    object: {
+      something: 'test',
+      else: [
+        'a', 'b', 'c'
+      ]
+    }
+  }
+};
+
 describe('verifySchema', function() {
   it('should exist as a function', function() {
     expect(verifySchema).to.exist;
@@ -8,39 +34,20 @@ describe('verifySchema', function() {
   });
 
   it('should not throw with a valid schema', function() {
-    const opts = {
-      something: 'hello world',
-      object: {
-        key: 'value',
-        enabled: true
-      }
+    const verify = () => {
+      verifySchema(inputs.validObject, inputs.requiredSchema);
     };
 
-    const schema = {
-      something: 'string',
-      object: {
-        key: 'string',
-        enabled: 'boolean'
-      }
-    };
-
-    expect(() => { verifySchema(opts, schema) }).to.not.throw();
+    expect(verify).to.not.throw();
   });
 
   it('should throw with an invalid schema', function() {
-    const opts = {
-      something: 'hello world',
-      object: {
-        key: 'value',
-        enabled: true
-      }
+    const verify = () => {
+      verifySchema(inputs.invalidObject, inputs.requiredSchema);
     };
 
-    const schema = {
-      something: 'string',
-      object: 'not an object'
-    };
-
-    expect(() => { verifySchema(opts, schema) }).to.throw();
+    expect(verify).to.throw();
   });
 });
+
+module.exports.inputs = inputs;

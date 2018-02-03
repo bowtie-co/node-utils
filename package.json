@@ -4,7 +4,10 @@
   "description": "Helpful JS utilities",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/**/*.spec.js"
+    "test": "mocha test/**/*.spec.js",
+    "test:watch": "mocha test/**/*.spec.js --watch",
+    "preversion": "npm test",
+    "postversion": "git push --follow-tags"
   },
   "keywords": [
     "bowtie",
@@ -18,5 +21,17 @@
   "devDependencies": {
     "chai": "^4.1.2",
     "mocha": "^5.0.0"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bowtie-co/node-utils.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bowtie-co/node-utils/issues"
+  },
+  "homepage": "https://github.com/bowtie-co/node-utils#readme"
 }

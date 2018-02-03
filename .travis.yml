@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+- 8
+deploy:
+  provider: npm
+  on:
+    tags: true
+    repo: bowtie-co/node-utils
+  api_key:
+    secure: pFOWQgRElZcYDF3LXfg/g63ZLv7QFVnwa3KPxzdyKD1jZU5c+UXUrYKYsDG7JWuhHxQs9XCILQpRJn5PbDq44ensBvmSqHen6Kt4lufzAe2HipqXFpH51gF8N5N0PaJVmOcIGZPANZIzhzHzdXQFd8jUH3u7KKwJBS050Ap7fUQsGl0/Phjj7WrwBOq0YsAb2Zi4hnDy+EsfBS2hRmagvO3uLXEbZbf9ujBZdgux3NPE1FOuw5YTGwuzssdvY4vjGvbjJZrEMUUYJ8m7Et/1pvUXffit6p2L6cmJU6ypHVVxm3RTv25Km9NYrUB4dUkMiWbXO5iOGXeDBFY0RT+nhQE0tzJoSm+XsbVfU675oRT4jysgcqpNhzb1H6/cWKz8IdztE56bZY85lCOJqY3upjTb6MozETAXKI/vTpKrMyxEkJM2p9rFieZ6NXhay8qfrd7O6bKht8K1SYfBfjY7LMA7LA5ueXuwNvP9tG7HQ5ORsdIn0vUhz5ISjYpjSi7xErWJO0Td/iBoXh62vvva+4TTBMqUJftFKN5vWDhq/VgQjDUFSABiD933+vzvlZTGFKZH+in+K4mKIX6rxTP1Hc49ORqB6IKUuFRyhhQT5eT+DyIeCDhgPDr4JSfeecnOkH7DhAsARMVFWbzdJgBIWesppPadW2Sp5igozJRH6Rs=

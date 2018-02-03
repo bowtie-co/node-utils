@@ -1,6 +1,24 @@
 const expect = require('chai').expect;
 const { verifyKeys } = require('../');
 
+const inputs = {
+  requiredKeys:[
+    'key1',
+    'key2'
+  ],
+  validKeys: {
+    key1: 'value',
+    key2: true
+  },
+  missingAllKeys: {},
+  missingSomeKeys: {
+    key1: 'value'
+  },
+  invalidKeys: {
+    key3: 'something'
+  }
+};
+
 describe('verifyKeys', function() {
   it('should exist as a function', function() {
     expect(verifyKeys).to.exist;
@@ -8,29 +26,36 @@ describe('verifyKeys', function() {
   });
 
   it('should not throw if all keys are present', function() {
-    const opts = {
-      k1: 'v1',
-      k2: 'v2'
-    };
+    const verify = () => {
+      verifyKeys(inputs.validKeys, inputs.requiredKeys);
+    }
 
-    const keys = [
-      'k1',
-      'k2'
-    ];
-
-    expect(() => { verifyKeys(opts, keys) }).to.not.throw();
+    expect(verify).to.not.throw();
   });
 
   it('should throw if any keys are missing', function() {
-    const opts = {
-      k1: 'v1',
-    };
+    const verify = () => {
+      verifyKeys(inputs.missingSomeKeys, inputs.requiredKeys);
+    }
 
-    const keys = [
-      'k1',
-      'k2'
-    ];
+    expect(verify).to.throw();
+  });
 
-    expect(() => { verifyKeys(opts, keys) }).to.throw();
+  it('should throw if all keys are missing', function() {
+    const verify = () => {
+      verifyKeys(inputs.missingAllKeys, inputs.requiredKeys);
+    }
+
+    expect(verify).to.throw();
+  });
+
+  it('should throw if only invalid keys are given', function() {
+    const verify = () => {
+      verifyKeys(inputs.invalidKeys, inputs.requiredKeys);
+    }
+
+    expect(verify).to.throw();
   });
 });
+
+module.exports.inputs = inputs;
