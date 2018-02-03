@@ -3,6 +3,9 @@
   "version": "0.0.6",
   "description": "Helpful JS utilities",
   "main": "index.js",
+  "engines": {
+    "node": ">=6.x"
+  },
   "scripts": {
     "test": "mocha test/**/*.spec.js",
     "test:watch": "mocha test/**/*.spec.js --watch",
