@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const { verifyRequired } = require('../src');
+const { verifyRequired } = require('../');
 
 const verifyKeysInputs = require('./verifyKeys.spec').inputs;
 const verifySchemaInputs = require('./verifySchema.spec').inputs;

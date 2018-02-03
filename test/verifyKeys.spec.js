@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const { verifyKeys } = require('../src');
+const { verifyKeys } = require('../');
 
 const inputs = {
   requiredKeys:[

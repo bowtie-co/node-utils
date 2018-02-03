@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const { endsWith } = require('../src');
+const { endsWith } = require('../');
 
 const inputs = {
   subject: 'somestring',
