@@ -3,6 +3,7 @@ node_js:
 - 8
 deploy:
   provider: npm
+  email: charlie@bowtie.co
   on:
     tags: true
     repo: bowtie-co/node-utils
