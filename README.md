@@ -3,7 +3,7 @@
 [![node version](https://img.shields.io/node/v/@bowtie/utils.svg?style=flat-square)](https://nodejs.org)
 [![npm downloads](https://img.shields.io/npm/dt/@bowtie/utils.svg?style=flat-square)](https://www.npmjs.com/package/@bowtie/utils)
 [![GitHub contributors](https://img.shields.io/github/contributors/bowtie-co/node-utils.svg?style=flat-square)](https://github.com/bowtie-co/node-utils/graphs/contributors)
-[![npm license](https://img.shields.io/npm/l/@bowtie/utils.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+[![license](https://img.shields.io/npm/l/@bowtie/utils.svg?style=flat-square)](https://github.com/bowtie-co/node-utils/blob/master/LICENSE)
 
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/bowtie-co/node-utils.svg?style=flat-square)](https://github.com/bowtie-co/node-utils/pulls)
 [![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/bowtie-co/node-utils.svg?style=flat-square)](https://github.com/bowtie-co/node-utils/pulls?utf8=%E2%9C%93&q=is%3Apr+is%3Aclosed+)
