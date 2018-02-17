@@ -1,6 +1,6 @@
 {
   "name": "@bowtie/utils",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Helpful JS utilities",
   "main": "index.js",
   "engines": {
