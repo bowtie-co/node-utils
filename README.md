@@ -14,7 +14,7 @@
 JavaScript utilities and helpers
 
 - [Installation](#installation)
-- [Documentation] (#documentation)
+- [Documentation](#documentation)
 
 ## Installation
 
