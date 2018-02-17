@@ -5,4 +5,4 @@ module.exports = {
   verifyKeys: require('./verifyKeys'),
   verifyRequired: require('./verifyRequired'),
   verifySchema: require('./verifySchema')
-};
+}

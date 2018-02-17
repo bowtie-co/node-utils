@@ -14,13 +14,7 @@
 JavaScript utilities and helpers
 
 - [Installation](#installation)
-- [Usage](#usage)
-  - [capitalizeWord](#capitalizeword)
-  - [endsWith](#endswith)
-  - [startsWith](#startswith)
-  - [verifyKeys](#verifykeys)
-  - [verifyRequired](#verifyrequired)
-  - [verifySchema](#verifyschema)
+- [Documentation] (#documentation)
 
 ## Installation
 
@@ -28,21 +22,6 @@ JavaScript utilities and helpers
 npm install --save @bowtie/utils
 ```
 
-## Usage
+## Documentation
 
-#### capitalizeWord
-#### endsWith
-```javascript
-const { endsWith } = require('@bowtie/utils');
-
-const fileName = 'cool-thing.png';
-
-if (endsWith(fileName, '.png')) {
-  console.log(fileName, 'is a PNG!');
-}
-```
-
-#### startsWith
-#### verifyKeys
-#### verifyRequired
-#### verifySchema
+[Documentation](https://bowtie-co.github.io/node-utils)
