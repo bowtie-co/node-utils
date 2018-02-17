@@ -1,3 +1,5 @@
+const escapeStringRegexp = require('escape-string-regexp')
+
 /**
  * Check if subject starts with search string(s)
  * @example <caption>Check for single string beginning.</caption>
@@ -20,7 +22,7 @@
  */
 const startsWith = (subject, search) => {
   const hasBeginning = (str) => {
-    const regex = new RegExp('^' + str)
+    const regex = new RegExp('^' + escapeStringRegexp(str))
     return regex.test(subject)
   }
 

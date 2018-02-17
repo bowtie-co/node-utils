@@ -5,28 +5,29 @@ const expect = require('chai').expect
 const { endsWith } = require('../')
 
 const inputs = {
-  subject: 'somestring',
-  subjectValidEnding: 'string',
-  subjectInvalidEnding: 'wrong',
+  subject: 'somestring?',
+  subjectValidEnding: 'string?',
+  subjectInvalidEnding: 'wrong!',
   subjectAllValidEndings: [
-    'g',
-    'in',
-    'ring',
-    'tring',
-    'string'
+    'g?',
+    'ng?',
+    'ing?',
+    'ring?',
+    'tring?',
+    'string?'
   ],
   subjectSomeValidEndings: [
-    'string',
-    'ring',
-    'test',
-    'foobar'
+    'string?',
+    'ring?',
+    'test#',
+    'foobar-'
   ],
   subjectInvalidEndings: [
-    'w',
-    'wr',
-    'wro',
-    'wron',
-    'wrong'
+    'w!',
+    'wr@',
+    'wro*',
+    'wron^',
+    'wrong!'
   ]
 }
 

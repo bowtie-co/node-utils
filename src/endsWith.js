@@ -1,3 +1,5 @@
+const escapeStringRegexp = require('escape-string-regexp')
+
 /**
  * Check if subject ends with search string(s)
  * @example <caption>Check for single string ending.</caption>
@@ -20,7 +22,7 @@
  */
 const endsWith = (subject, search) => {
   const hasEnding = (str) => {
-    const regex = new RegExp(str + '$')
+    const regex = new RegExp(escapeStringRegexp(str) + '$')
     return regex.test(subject)
   }
 

@@ -5,27 +5,27 @@ const expect = require('chai').expect
 const { startsWith } = require('../')
 
 const inputs = {
-  subject: 'somestring',
-  subjectValidBeginning: 'some',
-  subjectInvalidBeginning: 'wrong',
+  subject: '.somestring',
+  subjectValidBeginning: '.some',
+  subjectInvalidBeginning: '-wrong',
   subjectAllValidBeginnings: [
-    's',
-    'so',
-    'som',
-    'some'
+    '.s',
+    '.so',
+    '.som',
+    '.some'
   ],
   subjectSomeValidBeginnings: [
-    'some',
-    'so',
-    'test',
-    'foobar'
+    '.some',
+    '.so',
+    '*test',
+    '*foobar'
   ],
   subjectInvalidBeginnings: [
-    'w',
-    'wr',
-    'wro',
-    'wron',
-    'wrong'
+    '?w',
+    '_wr',
+    '-wro',
+    '*wron',
+    '&wrong'
   ]
 }
 
