@@ -32,7 +32,13 @@ const buildUrlParamObj = (url, paramChar) => {
   queryParams.forEach(p => {
     const param = p.split('=')
 
-    paramsObj[param[0]] = param[1]
+    if (param.length === 2) {
+      paramsObj[param[0]] = param[1]
+    } else if (param.length === 1) {
+      paramsObj[param[0]] = true
+    } else if (!param.length) {
+      return false
+    }
   })
 
   return paramsObj
