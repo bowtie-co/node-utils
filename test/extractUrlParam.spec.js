@@ -6,9 +6,13 @@ const { extractUrlParam } = require('../')
 
 const inputs = {
   callbackUrl: 'www.example.com/something#key1=value1&key2=value2',
-  paramOne: { key1: 'value1' },
-  paramTwo: { key2: 'value2' },
-  invalidParam: { key3: 'value3' }
+  validParams: {
+    key1: 'value1',
+    key2: 'value2'
+  },
+  invalidParams: {
+    key3: 'value3'
+  }
 }
 
 describe('extractUrlParam', function () {
@@ -18,17 +22,22 @@ describe('extractUrlParam', function () {
   })
 
   it('should return a string that is the value of the specified param', function () {
-    const result = extractUrlParam(inputs.callbackUrl, 'key1')
-    expect(result).to.be.a('string')
-    expect(result).to.deep.equal(inputs.paramOne.key1)
+    Object.keys(inputs.validParams).forEach(key => {
+      const value = inputs.validParams[key]
+
+      const result = extractUrlParam(inputs.callbackUrl, key)
+      expect(result).to.eql(value)
+    })
   })
 
   it('should throw an error message if paramChar is invalid', function () {
-    const result = () => {
-      extractUrlParam(inputs.callbackUrl, 'key3')
-    }
+    Object.keys(inputs.invalidParams).forEach(key => {
+      const result = () => {
+        extractUrlParam(inputs.callbackUrl, key)
+      }
 
-    expect(result).to.throw()
+      expect(result).to.throw()
+    })
   })
 })
 

@@ -7,7 +7,11 @@ const { buildUrlParamObj } = require('../')
 const inputs = {
   callbackUrl: 'www.example.com/something#key1=value1&key2=value2',
   validParamChar: '#',
-  invalidParamChar: '*'
+  invalidParamChar: '*',
+  expectedParamObj: {
+    key1: 'value1',
+    key2: 'value2'
+  }
 }
 
 describe('buildUrlParamObj', function () {
@@ -20,6 +24,7 @@ describe('buildUrlParamObj', function () {
     const result = buildUrlParamObj(inputs.callbackUrl, inputs.validParamChar)
     expect(result).to.be.a('object')
     expect(Object.keys(result)).to.have.lengthOf(2)
+    expect(result).to.eql(inputs.expectedParamObj)
   })
 
   it('should throw an error message if paramChar is invalid', function () {
