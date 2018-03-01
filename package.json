@@ -14,7 +14,7 @@
     "lint:fix": "standard --fix",
     "test": "npm run lint && npm run build && mocha test/**/*.spec.js",
     "test:watch": "mocha test/**/*.spec.js --watch",
-    "preversion": "npm test",
+    "preversion": "npm test && npm run doc:commit",
     "postversion": "git push --follow-tags"
   },
   "keywords": [
