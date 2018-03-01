@@ -24,7 +24,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#capitalizeWord">capitalizeWord</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#endsWith">endsWith</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#startsWith">startsWith</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#verifyKeys">verifyKeys</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#verifyRequired">verifyRequired</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#verifySchema">verifySchema</a></span></li>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#buildUrlParamObj">buildUrlParamObj</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#capitalizeWord">capitalizeWord</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#endsWith">endsWith</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#extractUrlParam">extractUrlParam</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#startsWith">startsWith</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#verifyKeys">verifyKeys</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#verifyRequired">verifyRequired</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#verifySchema">verifySchema</a></span></li>
 </nav>
 
 <div id="main">
@@ -111,6 +111,218 @@
     
         <h3 class="subsection-title">Methods</h3>
 
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="buildUrlParamObj"><span class="type-signature"></span>buildUrlParamObj<span class="signature">(url, paramChar)</span><span class="type-signature"> &rarr; {object}</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Builds an object composed of all query params in a specified URL.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="buildUrlParamObj.js.html">buildUrlParamObj.js</a>, <a href="buildUrlParamObj.js.html#line23">line 23</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>url</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>Url containing params</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>paramChar</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>The character that indicates the start of the query parameters</p>
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>object</code></span>
+
+
+    </dd>
+</dl>
+
+
+<div class="param-desc">
+    <ul>
+<li>Returns an object with the query params and their associated values.</li>
+</ul>
+</div>
+
+    
+</div>
+
+
+
+<div class="section-examples">
+<h5>Examples</h5>
+
+        <p class="code-caption">Builds a params object from a URL</p>
+    
+    <pre class="prettyprint"><code>var { buildUrlParamObj } = require('@bowtie/utils')
+
+var url = 'www.example.com/something?key1=value1&amp;key2=value2'
+var paramChar = "?"
+var result = buildUrlParamObj(url, paramChar)
+console.log(result)
+// { key1: "value1", key2: "value2" }</code></pre>
+
+        <p class="code-caption">Build a params object from a URL with a custom paramChar</p>
+    
+    <pre class="prettyprint"><code>var { buildUrlParamObj } = require('@bowtie/utils')
+
+var url = 'www.example.com/something#key1=value1&amp;key2=value2'
+var paramChar = '#'
+console.log( buildUrlParamObj(url, paramChar) )
+// { key1: "value1", key2: "value2" }</code></pre>
+
+</div>
+
+</div>
         
             
 <div class="section-method">
@@ -339,7 +551,7 @@ var word = capitalizeWord('HeLLo') // word = "Hello"</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="endsWith.js.html">endsWith.js</a>, <a href="endsWith.js.html#line21">line 21</a>
+        <a href="endsWith.js.html">endsWith.js</a>, <a href="endsWith.js.html#line23">line 23</a>
     </li></ul></dd>
     
 
@@ -510,6 +722,217 @@ endsWith(sub, [ 'planet', 'earth' ]) // false</code></pre>
 
     
 
+    <h4 class="name" id="extractUrlParam"><span class="type-signature"></span>extractUrlParam<span class="signature">(url, name)</span><span class="type-signature"> &rarr; {string}</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Extracts the value of a specified query param from a URL.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="extractUrlParam.js.html">extractUrlParam.js</a>, <a href="extractUrlParam.js.html#line22">line 22</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>url</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>Url containing params</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>the name of the url param to extract.</p>
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>string</code></span>
+
+
+    </dd>
+</dl>
+
+
+<div class="param-desc">
+    <ul>
+<li>Returns the value of the query param.</li>
+</ul>
+</div>
+
+    
+</div>
+
+
+
+<div class="section-examples">
+<h5>Examples</h5>
+
+        <p class="code-caption">Extracts the value of a specified query param from a URL.</p>
+    
+    <pre class="prettyprint"><code>var { extractUrlParam } = require('@bowtie/utils')
+
+var url = 'www.example.com/something?key1=value1&amp;key2=value2'
+
+console.log( extractUrlParam(url, 'key2') )
+// logs 'value2'</code></pre>
+
+        <p class="code-caption">Build a params object from a URL with a custom paramChar</p>
+    
+    <pre class="prettyprint"><code>var { extractUrlParam } = require('@bowtie/utils')
+
+var url = 'www.example.com/something?key1=value1&amp;key2=value2'
+
+console.log( extractUrlParam(url, 'key1') )
+// logs 'value1'</code></pre>
+
+</div>
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
     <h4 class="name" id="startsWith"><span class="type-signature"></span>startsWith<span class="signature">(subject, search)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
 
     
@@ -553,7 +976,7 @@ endsWith(sub, [ 'planet', 'earth' ]) // false</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="startsWith.js.html">startsWith.js</a>, <a href="startsWith.js.html#line21">line 21</a>
+        <a href="startsWith.js.html">startsWith.js</a>, <a href="startsWith.js.html#line23">line 23</a>
     </li></ul></dd>
     
 
@@ -1444,7 +1867,7 @@ verifySchema(options, schema) // Throws Error('Invalid type for key: opt2')</cod
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Feb 16 2018 18:30:21 GMT-0700 (MST) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Mar 01 2018 14:07:25 GMT-0700 (MST) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>verifyRequired.js - Documentation</title>
+    <title>buildUrlParamObj.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">verifyRequired.js</h1>
+    <h1 class="page-title">buildUrlParamObj.js</h1>
     
 
     
@@ -39,70 +39,53 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const verifyKeys = require('./verifyKeys')
-const verifySchema = require('./verifySchema')
-
-/**
- * Verify required options against keys or schema object
- * @example &lt;caption>Verify options against schema.&lt;/caption>
- * var { verifyRequired } = require('@bowtie/utils')
+            <pre class="prettyprint source linenums"><code>/**
+ * Builds an object composed of all query params in a specified URL.
+ * @example &lt;caption>Builds a params object from a URL&lt;/caption>
+ * var { buildUrlParamObj } = require('@bowtie/utils')
  *
- * var options = {
- *   opt1: 'something',
- *   opt2: true,
- *   opt3: {
- *     str: 'a string',
- *     num: 12345
- *   }
- * }
+ * var url = 'www.example.com/something?key1=value1&amp;key2=value2'
+ * var paramChar = "?"
+ * var result = buildUrlParamObj(url, paramChar)
+ * console.log(result)
+ * // { key1: "value1", key2: "value2" }
+ * @example &lt;caption>Build a params object from a URL with a custom paramChar&lt;/caption>
+ * var { buildUrlParamObj } = require('@bowtie/utils')
  *
- * var schema = {
- *   opt1: 'string',
- *   opt2: 'boolean',
- *   opt3: {
- *     str: 'string',
- *     num: 'number'
- *   }
- * }
- *
- * verifyRequired(options, schema) // Does not throw Error
- *
- * options.opt2 = 'a string instead of a boolean'
- *
- * verifyRequired(options, schema) // Throws Error('Invalid type for key: opt2')
- * @example &lt;caption>Verify options against keys array.&lt;/caption>
- * var { verifyRequired } = require('@bowtie/utils')
- *
- * var options = {
- *   opt1: 'something',
- *   opt2: true,
- *   opt3: {
- *     str: 'a string',
- *     num: 12345
- *   }
- * }
- *
- * verifyRequired(options, [ 'opt1', 'opt2', 'opt3' ]) // Does not throw Error
- * verifyRequired(options, [ 'opt1', 'opt2', 'opt4' ]) // Throws Error('Missing required key: opt4')
- * @param {object} options - Options to be checked for requirements
- * @param {object|string[]} required - Either an array of expected keys, or a schema object
- * @throws {Error} Invalid Argument
+ * var url = 'www.example.com/something#key1=value1&amp;key2=value2'
+ * var paramChar = '#'
+ * console.log( buildUrlParamObj(url, paramChar) )
+ * // { key1: "value1", key2: "value2" }
+ * @param {string} url - Url containing params
+ * @param {string} paramChar - The character that indicates the start of the query parameters
+ * @returns {object} - Returns an object with the query params and their associated values.
  */
-const verifyRequired = (options, required) => {
-  if (!options || typeof options !== 'object') {
-    throw new Error('Invalid Argument')
+
+const buildUrlParamObj = (url, paramChar) => {
+  if (!url.includes(paramChar)) {
+    throw Error(`The ${paramChar} paramChar does not exist in the Url. Please choose a character that indicates the beginning of the param queries.`)
   }
 
-  if (Array.isArray(required)) {
-    verifyKeys(options, required)
-  } else if (typeof required === 'object') {
-    verifySchema(options, required)
-  } else {
-    throw new Error('Invalid Argument')
-  }
+  const query = url.substr(url.indexOf(paramChar) + 1)
+  const queryParams = query.split('&amp;')
+  let paramsObj = {}
+
+  queryParams.forEach(p => {
+    const param = p.split('=')
+
+    if (param.length === 2) {
+      paramsObj[param[0]] = param[1]
+    } else if (param.length === 1) {
+      paramsObj[param[0]] = true
+    } else if (!param.length) {
+      return false
+    }
+  })
+
+  return paramsObj
 }
 
-module.exports = verifyRequired
+module.exports = buildUrlParamObj
 </code></pre>
         </article>
     </section>
