@@ -27,6 +27,14 @@ describe('buildUrlParamObj', function () {
     expect(result).to.eql(inputs.expectedParamObj)
   })
 
+  it('should throw an error message if paramChar is missing', function () {
+    const result = () => {
+      buildUrlParamObj(inputs.callbackUrl)
+    }
+
+    expect(result).to.throw()
+  })
+
   it('should throw an error message if paramChar is invalid', function () {
     const result = () => {
       buildUrlParamObj(inputs.callbackUrl, inputs.invalidParamChar)
