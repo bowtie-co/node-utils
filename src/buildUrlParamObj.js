@@ -38,9 +38,4 @@ const buildUrlParamObj = (url, paramChar) => {
   return paramsObj
 }
 
-var callbackUrl = 'www.example.com/something#key1=value1&key2=value2'
-var p = buildUrlParamObj(callbackUrl, '#')
-
-console.log(p)
-
 module.exports = buildUrlParamObj

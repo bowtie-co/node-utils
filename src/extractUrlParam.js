@@ -32,11 +32,4 @@ const extractUrlParam = (url, name) => {
   }
 }
 
-const callbackUrl = 'www.example.com/something#key1=value1&key2=value2'
-
-console.log(extractUrlParam(callbackUrl, 'key2'))
-// extractUrlParam(callbackUrl, 'state')
-// extractUrlParam(callbackUrl, 'nonce')
-// extractUrlParam(callbackUrl, 'token_type')
-
 module.exports = extractUrlParam
