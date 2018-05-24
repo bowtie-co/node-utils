@@ -15,6 +15,13 @@ const excludedWords = ['of', 'as', 'or', 'for', 'a', 'an']
  * var string = 'hello_world'
  *
  * titleize(string, '_') // Hello World
+
+ * @example <caption>Capitalize string with specified join character</caption>
+ * var { titleize } = require('@bowtie/utils')
+ *
+ * var string = 'hello_world'
+ *
+ * titleize(string, '_', ', ') // Hello, World
  * @example <caption>Only capitalize words that are not articles.</caption>
  * var { titleize } = require('@bowtie/utils')
  *
@@ -31,6 +38,7 @@ const excludedWords = ['of', 'as', 'or', 'for', 'a', 'an']
  *
  * @param {string} subject - Subject to titleize
  * @param {string} sep - Seperator to split the string. Defaults to " ".
+ * @param {string} join - Specificed character to join the string. Defaults to " ".
  * @returns {string} - Titleized string.
  */
 

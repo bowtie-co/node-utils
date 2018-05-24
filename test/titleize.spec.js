@@ -11,7 +11,9 @@ const inputs = {
   withArticle: 'this is a title',
   withArticleResponse: 'This Is a Title',
   beginWithArticle: 'a blue house',
-  beginWithArticleResponse: 'A Blue House'
+  beginWithArticleResponse: 'A Blue House',
+  withJoin: 'some_string_here',
+  withJoinResponse: 'Some, String, Here'
 }
 
 describe('titleize', function () {
@@ -34,6 +36,10 @@ describe('titleize', function () {
 
   it('should return the same string if input is already capitalized', function () {
     expect(titleize(inputs.beginWithArticle)).to.eq(inputs.beginWithArticleResponse)
+  })
+
+  it('should return the same string if input is already capitalized', function () {
+    expect(titleize(inputs.withJoin, '_', ', ')).to.eq(inputs.withJoinResponse)
   })
 })
 
