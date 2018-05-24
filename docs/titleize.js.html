@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>capitalizeWord.js - Documentation</title>
+    <title>titleize.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">capitalizeWord.js</h1>
+    <h1 class="page-title">titleize.js</h1>
     
 
     
@@ -39,24 +39,65 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * Capitalize a string
- * @example &lt;caption>Capitalize a lower case string.&lt;/caption>
- * var { capitalizeWord } = require('@bowtie/utils')
+            <pre class="prettyprint source linenums"><code>const capitalizeWord = require('./capitalizeWord')
+const excludedWords = ['of', 'as', 'or', 'for', 'a', 'an']
+
+/**
+ * Capitalize sentence with default seperator.
+ * @example &lt;caption>Capitalize sentence with default seperator.&lt;/caption>
+ * var { titleize } = require('@bowtie/utils')
  *
- * var word = capitalizeWord('hello') // word = "Hello"
- * @example &lt;caption>Capitalize a mixed case string.&lt;/caption>
- * var { capitalizeWord } = require('@bowtie/utils')
+ * var string = 'hello world'
  *
- * var word = capitalizeWord('HeLLo') // word = "Hello"
- * @param {string} str - Input string to be capitalized
- * @returns {string} - Returns capitalized string
+ * titleize(string) // 'Hello World'
+ * @example &lt;caption>Capitalize string with specified seperator&lt;/caption>
+ * var { titleize } = require('@bowtie/utils')
+ *
+ * var string = 'hello_world'
+ *
+ * titleize(string, '_') // Hello World
+
+ * @example &lt;caption>Capitalize string with specified join character&lt;/caption>
+ * var { titleize } = require('@bowtie/utils')
+ *
+ * var string = 'hello_world'
+ *
+ * titleize(string, '_', ', ') // Hello, World
+ * @example &lt;caption>Only capitalize words that are not articles.&lt;/caption>
+ * var { titleize } = require('@bowtie/utils')
+ *
+ * var string = 'this is a title'
+ *
+ * titleize(string) // This Is a Title
+ * @example &lt;caption>Capitalize article if it is the first word&lt;/caption>
+ * var { titleize } = require('@bowtie/utils')
+ *
+ * var string = 'a title this is'
+ *
+ * titleize(string) // A Title This Is
+ *
+ *
+ * @param {string} subject - Subject to titleize
+ * @param {string} sep - Seperator to split the string. Defaults to " ".
+ * @param {string} join - Specificed character to join the string. Defaults to " ".
+ * @returns {string} - Titleized string.
  */
-const capitalizeWord = (str) => {
-  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
+
+const titleize = (subject, sep = ' ', join = ' ') => {
+  return (
+   subject.split(sep)
+        .map((word, i) => {
+          if (!excludedWords.includes(word) || i === 0) {
+            return capitalizeWord(word)
+          } else {
+            return word
+          }
+        })
+        .join(join)
+  )
 }
 
-module.exports = capitalizeWord
+module.exports = titleize
 </code></pre>
         </article>
     </section>
