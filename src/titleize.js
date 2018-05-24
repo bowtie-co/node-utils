@@ -1,4 +1,6 @@
 const capitalizeWord = require('./capitalizeWord')
+const excludedWords = ['of', 'as', 'or', 'for', 'a', 'an']
+
 /**
  * Capitalize sentence with default seperator.
  * @example <caption>Capitalize sentence with default seperator.</caption>
@@ -25,12 +27,12 @@ const capitalizeWord = require('./capitalizeWord')
  * var string = 'a title this is'
  *
  * titleize(string) // A Title This Is
+ *
+ *
  * @param {string} subject - Subject to titleize
- * @param {string|string[]} sep - Seperator to split the string. Defaults to " ".
- * @returns {boolean} - Titleized string.
+ * @param {string} sep - Seperator to split the string. Defaults to " ".
+ * @returns {string} - Titleized string.
  */
-
-const excludedWords = ['of', 'as', 'or', 'for', 'a', 'an']
 
 const titleize = (subject, sep = ' ', join = ' ') => {
   return (
