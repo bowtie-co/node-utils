@@ -6,34 +6,34 @@ const excludedWords = ['of', 'as', 'or', 'for', 'a', 'an']
  * @example <caption>Capitalize sentence with default seperator.</caption>
  * var { titleize } = require('@bowtie/utils')
  *
- * var string = 'hello world'
+ * var str = 'hello world'
  *
- * titleize(string) // 'Hello World'
+ * titleize(str) // 'Hello World'
  * @example <caption>Capitalize string with specified seperator</caption>
  * var { titleize } = require('@bowtie/utils')
  *
- * var string = 'hello_world'
+ * var str = 'hello_world'
  *
- * titleize(string, '_') // Hello World
+ * titleize(str, '_') // Hello World
 
  * @example <caption>Capitalize string with specified join character</caption>
  * var { titleize } = require('@bowtie/utils')
  *
- * var string = 'hello_world'
+ * var str = 'hello_world'
  *
- * titleize(string, '_', ', ') // Hello, World
+ * titleize(str, '_', ', ') // Hello, World
  * @example <caption>Only capitalize words that are not articles.</caption>
  * var { titleize } = require('@bowtie/utils')
  *
- * var string = 'this is a title'
+ * var str = 'this is a title'
  *
- * titleize(string) // This Is a Title
+ * titleize(str) // This Is a Title
  * @example <caption>Capitalize article if it is the first word</caption>
  * var { titleize } = require('@bowtie/utils')
  *
- * var string = 'a title this is'
+ * var str = 'a title this is'
  *
- * titleize(string) // A Title This Is
+ * titleize(str) // A Title This Is
  *
  *
  * @param {string} subject - Subject to titleize
