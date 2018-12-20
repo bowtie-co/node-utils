@@ -10,6 +10,9 @@
 [![GitHub issues](https://img.shields.io/github/issues/bowtie-co/node-utils.svg?style=flat-square)](https://github.com/bowtie-co/node-utils/issues)
 [![GitHub closed issues](https://img.shields.io/github/issues-closed/bowtie-co/node-utils.svg?style=flat-square)](https://github.com/bowtie-co/node-utils/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aclosed+)
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/45fbac41cbd29072bcc1/maintainability)](https://codeclimate.com/github/bowtie-co/node-utils/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/45fbac41cbd29072bcc1/test_coverage)](https://codeclimate.com/github/bowtie-co/node-utils/test_coverage)
+
 # @bowtie/utils
 JavaScript utilities and helpers
 
