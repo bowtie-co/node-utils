@@ -1,5 +1,8 @@
-const expect = require('chai').expect;
-const { verifySchema } = require('../');
+/* eslint-env mocha */
+/* eslint-disable no-unused-expressions */
+
+const expect = require('chai').expect
+const { verifySchema } = require('../')
 
 const inputs = {
   requiredSchema: {
@@ -25,29 +28,29 @@ const inputs = {
       ]
     }
   }
-};
+}
 
-describe('verifySchema', function() {
-  it('should exist as a function', function() {
-    expect(verifySchema).to.exist;
-    expect(verifySchema).to.be.a('function');
-  });
+describe('verifySchema', function () {
+  it('should exist as a function', function () {
+    expect(verifySchema).to.exist
+    expect(verifySchema).to.be.a('function')
+  })
 
-  it('should not throw with a valid schema', function() {
+  it('should not throw with a valid schema', function () {
     const verify = () => {
-      verifySchema(inputs.validObject, inputs.requiredSchema);
-    };
+      verifySchema(inputs.validObject, inputs.requiredSchema)
+    }
 
-    expect(verify).to.not.throw();
-  });
+    expect(verify).to.not.throw()
+  })
 
-  it('should throw with an invalid schema', function() {
+  it('should throw with an invalid schema', function () {
     const verify = () => {
-      verifySchema(inputs.invalidObject, inputs.requiredSchema);
-    };
+      verifySchema(inputs.invalidObject, inputs.requiredSchema)
+    }
 
-    expect(verify).to.throw();
-  });
-});
+    expect(verify).to.throw()
+  })
+})
 
-module.exports.inputs = inputs;
+module.exports.inputs = inputs

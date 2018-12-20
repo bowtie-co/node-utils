@@ -1,8 +1,11 @@
-const expect = require('chai').expect;
-const { verifyKeys } = require('../');
+/* eslint-env mocha */
+/* eslint-disable no-unused-expressions */
+
+const expect = require('chai').expect
+const { verifyKeys } = require('../')
 
 const inputs = {
-  requiredKeys:[
+  requiredKeys: [
     'key1',
     'key2'
   ],
@@ -17,45 +20,45 @@ const inputs = {
   invalidKeys: {
     key3: 'something'
   }
-};
+}
 
-describe('verifyKeys', function() {
-  it('should exist as a function', function() {
-    expect(verifyKeys).to.exist;
-    expect(verifyKeys).to.be.a('function');
-  });
+describe('verifyKeys', function () {
+  it('should exist as a function', function () {
+    expect(verifyKeys).to.exist
+    expect(verifyKeys).to.be.a('function')
+  })
 
-  it('should not throw if all keys are present', function() {
+  it('should not throw if all keys are present', function () {
     const verify = () => {
-      verifyKeys(inputs.validKeys, inputs.requiredKeys);
+      verifyKeys(inputs.validKeys, inputs.requiredKeys)
     }
 
-    expect(verify).to.not.throw();
-  });
+    expect(verify).to.not.throw()
+  })
 
-  it('should throw if any keys are missing', function() {
+  it('should throw if any keys are missing', function () {
     const verify = () => {
-      verifyKeys(inputs.missingSomeKeys, inputs.requiredKeys);
+      verifyKeys(inputs.missingSomeKeys, inputs.requiredKeys)
     }
 
-    expect(verify).to.throw();
-  });
+    expect(verify).to.throw()
+  })
 
-  it('should throw if all keys are missing', function() {
+  it('should throw if all keys are missing', function () {
     const verify = () => {
-      verifyKeys(inputs.missingAllKeys, inputs.requiredKeys);
+      verifyKeys(inputs.missingAllKeys, inputs.requiredKeys)
     }
 
-    expect(verify).to.throw();
-  });
+    expect(verify).to.throw()
+  })
 
-  it('should throw if only invalid keys are given', function() {
+  it('should throw if only invalid keys are given', function () {
     const verify = () => {
-      verifyKeys(inputs.invalidKeys, inputs.requiredKeys);
+      verifyKeys(inputs.invalidKeys, inputs.requiredKeys)
     }
 
-    expect(verify).to.throw();
-  });
-});
+    expect(verify).to.throw()
+  })
+})
 
-module.exports.inputs = inputs;
+module.exports.inputs = inputs

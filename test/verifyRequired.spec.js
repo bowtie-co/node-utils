@@ -1,64 +1,67 @@
-const expect = require('chai').expect;
-const { verifyRequired } = require('../');
+/* eslint-env mocha */
+/* eslint-disable no-unused-expressions */
 
-const verifyKeysInputs = require('./verifyKeys.spec').inputs;
-const verifySchemaInputs = require('./verifySchema.spec').inputs;
+const expect = require('chai').expect
+const { verifyRequired } = require('../')
 
-const inputs = Object.assign({}, verifyKeysInputs, verifySchemaInputs);
+const verifyKeysInputs = require('./verifyKeys.spec').inputs
+const verifySchemaInputs = require('./verifySchema.spec').inputs
 
-describe('verifyRequired', function() {
-  it('should exist as a function', function() {
-    expect(verifyRequired).to.exist;
-    expect(verifyRequired).to.be.a('function');
-  });
+const inputs = Object.assign({}, verifyKeysInputs, verifySchemaInputs)
 
-  it('should not throw with a valid schema', function() {
+describe('verifyRequired', function () {
+  it('should exist as a function', function () {
+    expect(verifyRequired).to.exist
+    expect(verifyRequired).to.be.a('function')
+  })
+
+  it('should not throw with a valid schema', function () {
     const verify = () => {
-      verifyRequired(inputs.validObject, inputs.requiredSchema);
-    };
-
-    expect(verify).to.not.throw();
-  });
-
-  it('should throw with an invalid schema', function() {
-    const verify = () => {
-      verifyRequired(inputs.invalidObject, inputs.requiredSchema);
-    };
-
-    expect(verify).to.throw();
-  });
-
-  it('should not throw if all keys are present', function() {
-    const verify = () => {
-      verifyRequired(inputs.validKeys, inputs.requiredKeys);
+      verifyRequired(inputs.validObject, inputs.requiredSchema)
     }
 
-    expect(verify).to.not.throw();
-  });
+    expect(verify).to.not.throw()
+  })
 
-  it('should throw if any keys are missing', function() {
+  it('should throw with an invalid schema', function () {
     const verify = () => {
-      verifyRequired(inputs.missingSomeKeys, inputs.requiredKeys);
+      verifyRequired(inputs.invalidObject, inputs.requiredSchema)
     }
 
-    expect(verify).to.throw();
-  });
+    expect(verify).to.throw()
+  })
 
-  it('should throw if all keys are missing', function() {
+  it('should not throw if all keys are present', function () {
     const verify = () => {
-      verifyRequired(inputs.missingAllKeys, inputs.requiredKeys);
+      verifyRequired(inputs.validKeys, inputs.requiredKeys)
     }
 
-    expect(verify).to.throw();
-  });
+    expect(verify).to.not.throw()
+  })
 
-  it('should throw if only invalid keys are given', function() {
+  it('should throw if any keys are missing', function () {
     const verify = () => {
-      verifyRequired(inputs.invalidKeys, inputs.requiredKeys);
+      verifyRequired(inputs.missingSomeKeys, inputs.requiredKeys)
     }
 
-    expect(verify).to.throw();
-  });
-});
+    expect(verify).to.throw()
+  })
 
-module.exports.inputs = inputs;
+  it('should throw if all keys are missing', function () {
+    const verify = () => {
+      verifyRequired(inputs.missingAllKeys, inputs.requiredKeys)
+    }
+
+    expect(verify).to.throw()
+  })
+
+  it('should throw if only invalid keys are given', function () {
+    const verify = () => {
+      verifyRequired(inputs.invalidKeys, inputs.requiredKeys)
+    }
+
+    expect(verify).to.throw()
+  })
+})
+
+module.exports.inputs = inputs
