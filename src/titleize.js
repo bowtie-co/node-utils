@@ -44,15 +44,15 @@ const excludedWords = ['of', 'as', 'or', 'for', 'a', 'an']
 
 const titleize = (subject, sep = ' ', join = ' ') => {
   return (
-   subject.split(sep)
-        .map((word, i) => {
-          if (!excludedWords.includes(word) || i === 0) {
-            return capitalizeWord(word)
-          } else {
-            return word
-          }
-        })
-        .join(join)
+    subject.split(sep)
+      .map((word, i) => {
+        if (!excludedWords.includes(word) || i === 0) {
+          return capitalizeWord(word)
+        } else {
+          return word
+        }
+      })
+      .join(join)
   )
 }
 

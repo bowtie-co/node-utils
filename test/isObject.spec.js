@@ -27,6 +27,16 @@ describe('isObject', function () {
   it('should return false if nothing is passed in', function () {
     expect(isObject()).to.eq(false)
   })
+
+  it('should return true for an object with key value pairs', function () {
+    const fullObj = { 1: 1, 2: 2, 3: 3 }
+    expect(isObject(fullObj)).to.eq(true)
+  })
+
+  it('should return false for an array with values', function () {
+    const fullArr = [1, 2, 3]
+    expect(isObject(fullArr)).to.eq(false)
+  })
 })
 
 module.exports.inputs = inputs
